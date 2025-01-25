@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #4169E1 0%, #1E40AF 100%);
+}
+
+body {
+  @apply bg-gray-50;
+}
+
+.nav-link {
+  @apply relative px-2 py-1.5 text-gray-700 hover:text-blue-600 transition-colors duration-200;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-in-out;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.social-icon {
+  @apply w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110;
+}
+
+/* Mobile menu animation */
+.mobile-menu-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.mobile-menu-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 200ms, transform 200ms;
+}
+
+.mobile-menu-exit {
+  opacity: 1;
+}
+
+.mobile-menu-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 200ms, transform 200ms;
+}
+
+/* Book hover effect */
+.book-card {
+  perspective: 1000px;
+}
+
+.book-cover {
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.book-card:hover .book-cover {
+  transform: rotateY(10deg) translateZ(20px);
+}
