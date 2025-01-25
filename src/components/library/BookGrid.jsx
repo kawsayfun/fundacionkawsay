@@ -1,40 +1,12 @@
-'use client';
-import { motion } from 'framer-motion';
-import { useRouter } from 'next/navigation';
-
-const books = [
-  {
-    id: 1,
-    title: 'La Realidad Escondida de la Agroecología',
-    cover: '/images/book1.png',
-    author: 'Varios Autores',
-    year: '2023'
-  },
-  {
-    id: 2,
-    title: 'Ochbre: El despertar de los pueblos',
-    cover: '/images/book2.png',
-    author: 'Colectivo Kawsay',
-    year: '2022'
-  },
-  {
-    id: 3,
-    title: 'Música Andina',
-    cover: '/images/book3.png',
-    author: 'Fundación Kawsay',
-    year: '2023'
-  },
-  {
-    id: 4,
-    title: 'Saberes Ancestrales',
-    cover: '/images/book4.png',
-    author: 'Comunidad Kawsay',
-    year: '2023'
-  }
-];
+"use client";
+import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+import useBooks from "@/app/hooks/usebooks";
+ // Ajusta la ruta según dónde creaste el hook
 
 export default function BookGrid() {
   const router = useRouter();
+  const books = useBooks(); // Libros desde Firestore
 
   const handleBookClick = (bookId) => {
     router.push(`/biblioteca/${bookId}`);
@@ -49,11 +21,11 @@ export default function BookGrid() {
               key={book.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ 
+              transition={{
                 delay: index * 0.1,
                 duration: 0.5
               }}
-              whileHover={{ 
+              whileHover={{
                 y: -10,
                 transition: { duration: 0.2 }
               }}
@@ -62,7 +34,7 @@ export default function BookGrid() {
             >
               <div className="relative aspect-[2/3] overflow-hidden rounded-lg shadow-lg transition-shadow duration-300 group-hover:shadow-xl">
                 <img
-                  src={book.cover}
+                  src={book.cover || "/images/default.png"}
                   alt={book.title}
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />

@@ -1,51 +1,47 @@
-'use client';
-import { useParams } from 'next/navigation';
-import Layout from '@/components/layout/Layout';
-import { motion } from 'framer-motion';
-import { FaBookOpen, FaCalendarAlt, FaUser, FaDownload } from 'react-icons/fa';
-
-const books = [
-  {
-    id: 1,
-    title: 'La Realidad Escondida de la Agroecología',
-    cover: '/images/book1.jpg',
-    author: 'Varios Autores',
-    year: '2023',
-    pages: 196,
-    description: 'La agroecología es una ciencia que diverge de la ciencia tradicional "moderna", que se ocupa del diseño y manejo de agroecosistemas sostenibles. Este libro explora las prácticas ancestrales y su aplicación en la agricultura moderna.'
-  },
-  {
-    id: 2,
-    title: 'Ochbre: El despertar de los pueblos',
-    cover: '/images/book2.jpg',
-    author: 'Colectivo Kawsay',
-    year: '2022',
-    pages: 168,
-    description: 'Un análisis profundo del movimiento indígena y su impacto en la transformación social y política de la región. Este libro documenta las luchas y logros de los pueblos originarios.'
-  },
-  {
-    id: 3,
-    title: 'Música Andina',
-    cover: '/images/book3.jpg',
-    author: 'Fundación Kawsay',
-    year: '2023',
-    pages: 145,
-    description: 'Una exploración de las tradiciones musicales andinas, sus instrumentos, ritmos y significado cultural. Este libro es una ventana a la riqueza musical de los Andes.'
-  },
-  {
-    id: 4,
-    title: 'Saberes Ancestrales',
-    cover: '/images/book4.jpg',
-    author: 'Comunidad Kawsay',
-    year: '2023',
-    pages: 210,
-    description: 'Una recopilación de conocimientos tradicionales transmitidos de generación en generación. Este libro preserva y comparte la sabiduría ancestral de nuestros pueblos.'
-  }
-];
+"use client";
+import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import { db } from "@/firebaseConfig";
+import { doc, getDoc } from "firebase/firestore";
+import Layout from "@/components/layout/Layout";
+import { motion } from "framer-motion";
+import { FaBookOpen, FaCalendarAlt, FaUser, FaDownload } from "react-icons/fa";
 
 export default function BookDetail() {
   const params = useParams();
-  const book = books.find(b => b.id === parseInt(params.id));
+  const [book, setBook] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchBook() {
+      try {
+        const docRef = doc(db, "books", params.id);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setBook({ id: docSnap.id, ...docSnap.data() });
+        } else {
+          setBook(null);
+        }
+      } catch (error) {
+        console.error("Error fetching book:", error);
+        setBook(null);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchBook();
+  }, [params.id]);
+
+  if (loading) {
+    return (
+      <Layout>
+        <div className="min-h-screen flex items-center justify-center">
+          <p className="text-2xl text-gray-600">Cargando libro...</p>
+        </div>
+      </Layout>
+    );
+  }
 
   if (!book) {
     return (
@@ -72,7 +68,7 @@ export default function BookDetail() {
                 <motion.img
                   initial={{ scale: 1.2, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  src={book.cover}
+                  src={book.cover || "/images/default.png"}
                   alt={book.title}
                   className="w-full h-full object-cover"
                 />
@@ -89,19 +85,21 @@ export default function BookDetail() {
                     {book.title}
                   </h1>
 
-                  <div className="space-y-4 mb-8">
-                    <div className="flex items-center text-gray-600">
+                  <div className="space-y-4 mb-8 text-gray-600">
+                    <div className="flex items-center">
                       <FaUser className="w-5 h-5 mr-3" />
                       <span>{book.author}</span>
                     </div>
-                    <div className="flex items-center text-gray-600">
+                    <div className="flex items-center">
                       <FaCalendarAlt className="w-5 h-5 mr-3" />
                       <span>{book.year}</span>
                     </div>
-                    <div className="flex items-center text-gray-600">
-                      <FaBookOpen className="w-5 h-5 mr-3" />
-                      <span>{book.pages} páginas</span>
-                    </div>
+                    {book.pages && (
+                      <div className="flex items-center">
+                        <FaBookOpen className="w-5 h-5 mr-3" />
+                        <span>{book.pages} páginas</span>
+                      </div>
+                    )}
                   </div>
 
                   <div className="prose prose-lg text-gray-600 mb-8">
@@ -114,7 +112,7 @@ export default function BookDetail() {
                     className="flex items-center justify-center w-full bg-blue-600 text-white py-4 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
                   >
                     <FaDownload className="mr-2" />
-                    Descargar PDF
+                    Leer Ahora
                   </motion.button>
                 </motion.div>
               </div>

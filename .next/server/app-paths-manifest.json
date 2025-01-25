@@ -1,11 +1,8 @@
 {
-  "/page": "app/page.js",
-  "/institucion/page": "app/institucion/page.js",
-  "/informacion/page": "app/informacion/page.js",
-  "/escuelas/page": "app/escuelas/page.js",
-  "/biblioteca/page": "app/biblioteca/page.js",
+  "/multimedia/page": "app/multimedia/page.js",
   "/contactos/page": "app/contactos/page.js",
-  "/informacion/proposito/page": "app/informacion/proposito/page.js",
-  "/informacion/ejes-tematicos/page": "app/informacion/ejes-tematicos/page.js",
-  "/multimedia/page": "app/multimedia/page.js"
+  "/page": "app/page.js",
+  "/biblioteca/page": "app/biblioteca/page.js",
+  "/biblioteca/[id]/page": "app/biblioteca/[id]/page.js",
+  "/escuelas/page": "app/escuelas/page.js"
 }
