@@ -1,15 +1,37 @@
 "use client";
+
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import useBooks from "@/app/hooks/usebooks";
- // Ajusta la ruta según dónde creaste el hook
+import { useEffect, useState } from "react";
+import { db } from "@/firebaseConfig"; // Configuración de Firebase
+import { collection, getDocs } from "firebase/firestore";
 
 export default function BookGrid() {
   const router = useRouter();
-  const books = useBooks(); // Libros desde Firestore
+  const [books, setBooks] = useState([]);
+
+  const fetchBooks = async () => {
+    try {
+      const booksCollection = collection(db, "books");
+      const booksSnapshot = await getDocs(booksCollection);
+
+      const booksData = booksSnapshot.docs.map((doc) => ({
+        id: doc.data().id, // Campo estático id en Firestore
+        ...doc.data(),
+      }));
+
+      setBooks(booksData);
+    } catch (error) {
+      console.error("Error fetching books: ", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchBooks();
+  }, []);
 
   const handleBookClick = (bookId) => {
-    router.push(`/biblioteca/${bookId}`);
+    router.push(`/biblioteca/detalle/${bookId}`); // Navegación dinámica
   };
 
   return (
@@ -23,11 +45,11 @@ export default function BookGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
                 delay: index * 0.1,
-                duration: 0.5
+                duration: 0.5,
               }}
               whileHover={{
                 y: -10,
-                transition: { duration: 0.2 }
+                transition: { duration: 0.2 },
               }}
               className="group relative cursor-pointer"
               onClick={() => handleBookClick(book.id)}
