@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -12,11 +13,12 @@ export default function Header() {
     <header className="bg-white shadow-lg fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="flex items-center space-x-3">
+          {/* Logo y Nombre */}
+          <div className="flex items-center space-x-3">
+            <Link href="/" aria-label="Ir al inicio" className="flex items-center space-x-2">
               <Image
                 src="/images/logoyoutube.png"
-                alt="Kawsay Logo"
+                alt="Logo Fundación Kawsay"
                 width={50}
                 height={50}
                 className="h-12 w-auto"
@@ -24,7 +26,8 @@ export default function Header() {
               <span className="text-xl font-bold text-gray-900">Kawsay</span>
             </Link>
           </div>
-          
+
+          {/* Menú de Navegación */}
           <Navigation />
           <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>

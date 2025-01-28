@@ -23,15 +23,15 @@ export default function ContactPage() {
             <div className="space-y-4">
               <p className="flex items-center text-gray-600">
                 <span className="font-semibold w-24">Email:</span>
-                <span>info@kawsay.org</span>
+                <span>fundacionkawsay.2016@gmail.com</span>
               </p>
               <p className="flex items-center text-gray-600">
                 <span className="font-semibold w-24">Teléfono:</span>
-                <span>(123) 456-7890</span>
+                <span>(02)2-110-924 </span>
               </p>
               <p className="flex items-center text-gray-600">
                 <span className="font-semibold w-24">Dirección:</span>
-                <span>Calle Principal #123</span>
+                <span>Cayambe, calle Bolivar y Restauración</span>
               </p>
             </div>
           </motion.div>

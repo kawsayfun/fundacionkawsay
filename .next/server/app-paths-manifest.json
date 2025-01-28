@@ -1,8 +1,10 @@
 {
   "/page": "app/page.js",
-  "/biblioteca/page": "app/biblioteca/page.js",
-  "/contactos/page": "app/contactos/page.js",
-  "/biblioteca/detalle/[id]/page": "app/biblioteca/detalle/[id]/page.js",
+  "/institucion/objetivos/page": "app/institucion/objetivos/page.js",
   "/informacion/page": "app/informacion/page.js",
-  "/escuelas/page": "app/escuelas/page.js"
+  "/escuelas/page": "app/escuelas/page.js",
+  "/biblioteca/detalle/[id]/page": "app/biblioteca/detalle/[id]/page.js",
+  "/biblioteca/page": "app/biblioteca/page.js",
+  "/institucion/page": "app/institucion/page.js",
+  "/contactos/page": "app/contactos/page.js"
 }
