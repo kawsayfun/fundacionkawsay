@@ -2,7 +2,8 @@ import './globals.css';
 
 export const metadata = {
   title: 'Fundación Kawsay',
-  description: 'Organización no Gubernamental sin fines de Lucro',
+  description:
+  'Fundación Kawsay, una organización no gubernamental dedicada al desarrollo integral de las comunidades indígenas, promoviendo la educación, la cultura y el bienestar social.',
 };
 
 export default function RootLayout({ children }) {
