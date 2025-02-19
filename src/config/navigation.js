@@ -34,7 +34,7 @@ export const navigationItems = [
   },
   { 
     name: 'PLATAFORMA', 
-    href: 'https://moodle.kawsay.org',
+    href: 'https://fundacionkawsayplataforma.org/',
     isExternal: true,
     isHighlighted: true
   },

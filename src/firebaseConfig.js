@@ -1,4 +1,4 @@
-// functions/firebaseConfig.js (o donde prefieras)
+
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";

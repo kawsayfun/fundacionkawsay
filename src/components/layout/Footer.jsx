@@ -21,7 +21,7 @@ export default function Footer() {
             <ul className="text-gray-400 space-y-2">
               <li>Email: <a href="mailto:info@kawsay.org" className="hover:text-white">fundacionkawsay.2016@gmail.com</a></li>
               <li>Teléfono: <a href="tel:+1234567890" className="hover:text-white">(02)2-110-924 </a></li>
-              <li>Dirección: Cayambe, Bolivar y Restauración</li>
+              <li>Dirección: Cayambe, calle Bolivar y Restauración</li>
             </ul>
           </div>
 
@@ -38,8 +38,25 @@ export default function Footer() {
 
         {/* Línea inferior */}
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          &copy; {new Date().getFullYear()} Fundación Kawsay. Todos los derechos reservados.
-        </div>
+  &copy; {new Date().getFullYear()} Fundación Kawsay. Todos los derechos reservados.
+  <div className="mt-2 flex justify-center items-center gap-2">
+    <span>Desarrollado por</span>
+    <a 
+      href="https://gttecnology.com/" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      className="text-blue-400 hover:underline"
+    >
+      GT Tecnology
+    </a>
+    <img 
+      src="/images/LOGO.png" 
+      alt="GT Technology Logo" 
+      className="h-6"
+    />
+  </div>
+</div>
+
       </div>
     </footer>
   );
