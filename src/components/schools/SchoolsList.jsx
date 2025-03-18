@@ -8,12 +8,12 @@ import { motion } from 'framer-motion';
 const presentations = [
   {
     id: 'lideres',
-    title: 'Presentación Escuela de Formación de Líderes',
+    title: 'Escuela de Formación de Líderes',
     content: `La Escuela de Formación de Líderes “Sumak Kawsay” es una estrategia política de concienciación organizativa, ideológico y político dirigido para los dirigentes y líderes de las organizaciones; la misma viene desarrollando desde el año 2013. Es un espacio de compartimiento de conocimientos desde la legitimidad social ideológico y político; metodológicamente se realiza a través de seminarios talleres de capacitación organizativo, político, económico, social, cultural y ambiental, enmarcado en los derechos de los pueblos indígenas. Lleva su nombre Sumak Kawsay, porque es un paradigma organizativo, político, plurinacionalidad e interculturalidad para fortalecer el sistema de organización comunitaria, que dinamiza y armoniza las relaciones organizativas, sociales, políticos, económicos, guiado por los principios y valores de convivencia para una sociedad solidaria, reciproca y equitativa.`
   },
   {
     id: 'agroecologia',
-    title: 'Presentación Escuela de Agroecología',
+    title: 'Escuela de Agroecología',
     content: `El curso de Agroecología “kawsaymanta” es una estrategia ambiental, organizativa y productiva que trabaja en el territorio del Pueblo Kayambi; es un espacio de fortalecimiento organizativo, recuperación e intercambio de conocimientos y técnicas ancestrales, mediante: talleres de capacitación teórico – práctico, dirigidos a :hombres, mujeres, jóvenes y niños; en Centro de Capacitación de la Fundación ubicado en : Asc. “El Prado“ - Cayambe.`
   },
   {

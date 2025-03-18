@@ -105,19 +105,31 @@ export default function HeroSection() {
               transition={{ duration: 0.8 }}
               className="absolute inset-0 bg-black/50 flex items-center justify-center text-center text-white px-4 w-full"
             >
-              <div>
-                <h1 className="text-4xl md:text-6xl font-bold mb-6">Fundación de Culturas Indigenas Kawsay</h1>
-                <p className="text-xl md:text-2xl mb-8">Organización no Gubernamental sin fines de Lucro</p>
-                <Link href="/informacion">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  CONOCE MÁS
-                </motion.button>
-                </Link>
-              </div>
+            <div>
+  <h1 className="text-4xl md:text-6xl font-bold mb-6">Fundación de Culturas Indigenas Kawsay</h1>
+  <p className="text-xl md:text-2xl mb-8">Organización no Gubernamental sin fines de Lucro</p>
+  
+  {/* Franja de colores ajustada */}
+  <div className="flex max-w-2xl mx-auto mb-8 ">
+    <div className="flex-1 h-8 bg-red-500"></div>
+    <div className="flex-1 h-8 bg-orange-500"></div>
+    <div className="flex-1 h-8 bg-yellow-500"></div>
+    <div className="flex-1 h-8 bg-green-500"></div>
+    <div className="flex-1 h-8 bg-blue-500"></div>
+    <div className="flex-1 h-8 bg-purple-500"></div>
+    <div className="flex-1 h-8 bg-pink-500"></div>
+  </div>
+
+  <Link href="/informacion">
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+    >
+      CONOCE MÁS
+    </motion.button>
+  </Link>
+</div>
             </motion.div>
           ) : (
             // Imagen en los demás slides
