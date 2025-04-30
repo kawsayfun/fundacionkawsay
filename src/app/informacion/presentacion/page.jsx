@@ -23,7 +23,7 @@ export default function Presentation() {
             {/* Imagen representativa */}
             <div className="mb-8">
               <img 
-                src="/images/educacion2.jpg" // Aquí debes poner la ruta correcta de la imagen
+                src="/images/presentacion.jpg" // Aquí debes poner la ruta correcta de la imagen
                 alt="Escuela de Formación de Líderes Sumak Kawsay"
                 className="w-full h-auto rounded-lg shadow-lg"
               />

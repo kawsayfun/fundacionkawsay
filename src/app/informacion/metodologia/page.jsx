@@ -26,7 +26,7 @@ export default function Methodology() {
               {/* Imagen con efecto hover */}
               <div className="overflow-hidden rounded-lg">
                 <motion.img
-                  src="/images/educacion.jpg"  /* Cambia esta ruta a tu imagen de modalidad presencial */
+                  src="/images/areasaccion/metodologiap.jpg"  /* Cambia esta ruta a tu imagen de modalidad presencial */
                   alt="Modalidad Presencial"
                   className="w-full h-auto cursor-pointer"
                   whileHover={{ scale: 1.05 }}

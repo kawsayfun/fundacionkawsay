@@ -14,7 +14,7 @@ export default function MissionVision() {
             className="bg-blue-50 p-8 rounded-2xl shadow-lg"
           >
             <h2 className="text-3xl font-bold mb-6 text-blue-900">MISIÓN</h2>
-            <p className="text-gray-700 leading-relaxed text-lg">
+            <p className="text-gray-700 leading-relaxed text-lg text-justify">
               Fomenta talentos humanos con corresponsabilidad, compromiso y equidad entre hombres y mujeres en base a principios comunitarios; a través, de formación con metodología que viabilice el Sumak Kawsay de nacionalidades y pueblos indígenas; e, identificados culturalmente en la sociedad con presencia y participación plena políticamente en diferentes ámbitos de la vida cultural, social, económico y ambiental, desarrollando integralmente sus conocimientos, sabiduría, ciencia, tecnología y espiritualidad para la armonía de la Pachamama.
             </p>
           </motion.div>
@@ -27,7 +27,7 @@ export default function MissionVision() {
             className="bg-blue-50 p-8 rounded-2xl shadow-lg"
           >
             <h2 className="text-3xl font-bold mb-6 text-blue-900">VISIÓN</h2>
-            <p className="text-gray-700 leading-relaxed text-lg">
+            <p className="text-gray-700 leading-relaxed text-lg text-justify">
               Nacionalidades y pueblos indígenas; identificados y orgullosos culturalmente con presencia y participación plena en la sociedad en diferentes ámbitos de la vida cultural, social, económico y político, desarrollan plenamente y comparten sus conocimientos, sabidurías, ciencia, tecnología y espiritualidad en armonía con la Pachamama.
             </p>
           </motion.div>

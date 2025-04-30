@@ -4,17 +4,17 @@ import { motion } from 'framer-motion';
 export default function ImpactSection() {
   const impactStats = [
     {
-      number: '1000+',
+      number: '1531+',
       label: 'Estudiantes',
       description: 'Beneficiados por nuestros programas educativos'
     },
     {
-      number: '20+',
+      number: '568+',
       label: 'Comunidades',
       description: 'Trabajando juntos por un futuro mejor'
     },
     {
-      number: '15',
+      number: '12',
       label: 'Años',
       description: 'De experiencia en educación intercultural'
     }

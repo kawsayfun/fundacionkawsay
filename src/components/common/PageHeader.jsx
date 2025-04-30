@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function PageHeader({ title, description }) {
   return (
-    <section className="relative min-h-[40vh] flex items-center justify-center bg-blue-900">
+    <section className="relative min-h-[40vh] flex items-center justify-center bg-banner-custom">
       <div className="absolute inset-0 bg-black opacity-40"></div>
       <motion.div 
         initial={{ opacity: 0, y: 20 }}

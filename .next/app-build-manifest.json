@@ -1,10 +1,5 @@
 {
   "pages": {
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
-    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -16,20 +11,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/escuelas/page.js"
     ],
-    "/informacion/page": [
+    "/not-found": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/informacion/page.js"
-    ],
-    "/informacion/presentacion/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/informacion/presentacion/page.js"
-    ],
-    "/institucion/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/institucion/page.js"
+      "static/chunks/app/not-found.js"
     ]
   }
 }

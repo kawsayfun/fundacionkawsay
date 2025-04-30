@@ -1,10 +1,10 @@
 'use client';
-import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaTiktok } from 'react-icons/fa';
 
 export default function SocialLinks() {
   const socialMedia = [
     { icon: FaFacebook, href: 'https://www.facebook.com/profile.php?id=100064346215598', color: 'bg-blue-600' },
-    { icon: FaTwitter, href: 'https://www.facebook.com/profile.php?id=100064346215598', color: 'bg-sky-500' },
+    { icon: FaTiktok, href: 'https://www.facebook.com/profile.php?id=100064346215598', color: 'bg-gray-800' },
     { icon: FaInstagram, href: 'https://www.facebook.com/profile.php?id=100064346215598', color: 'bg-pink-600' },
     { icon: FaYoutube, href: 'https://www.youtube.com/@fundacionkawsay2941', color: 'bg-red-600' },  // Nuevo ícono de YouTube
   ];

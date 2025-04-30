@@ -31,7 +31,11 @@ export default function MissionSection() {
             {
               title: 'Desarrollo',
               description: 'Desarrollo integral de conocimientos, sabiduría, ciencia, tecnología y espiritualidad.'
-            }
+            },
+            {
+              title: 'Medio Ambiente',
+              description: 'Trabajamos incansablemente para proteger y restaurar nuestros ecosistemas, impulsando soluciones sostenibles y creando conciencia para un futuro verde en Ecuador y más allá.'
+            } 
           ].map((item, index) => (
             <motion.div
               key={item.title}

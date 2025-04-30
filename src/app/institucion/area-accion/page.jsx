@@ -9,7 +9,7 @@ export default function ActionArea() {
     {
       title: "Formación y capacitación",
       description: "Identidad cultural, sistemas de organización comunitaria, derechos de pueblos indígenas y producción agroecológica.",
-      image: "/images/educacion.jpg",
+      image: "/images/areasaccion/formacioncapacitacion.png",
       activities: [
         "Talleres de identidad cultural",
         "Capacitación en sistemas organizativos",
@@ -20,7 +20,7 @@ export default function ActionArea() {
     {
       title: "Investigación y publicación",
       description: "Desarrollo de investigaciones y publicaciones sobre cultura, educación y desarrollo comunitario.",
-      image: "/images/escuela.jpg",
+      image: "/images/areasaccion/investigacionpublicacion.jpg",
       activities: [
         "Estudios culturales",
         "Documentación de saberes ancestrales",
@@ -31,7 +31,7 @@ export default function ActionArea() {
     {
       title: "Acompañamiento organizativo",
       description: "Acompañamiento organizativo, pedagógico y cultural a las comunidades.",
-      image: "/images/Acompa.jpg",
+      image: "/images/areasaccion/acomorganizado.png",
       activities: [
         "Asesoría organizacional",
         "Apoyo pedagógico",

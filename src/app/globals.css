@@ -62,3 +62,11 @@ body {
 .book-card:hover .book-cover {
   transform: rotateY(10deg) translateZ(20px);
 }
+.bg-banner-custom {
+  background: #dbd763;
+background: linear-gradient(90deg,rgba(219, 215, 99, 1) 0%, rgba(218, 230, 92, 1) 0%, rgba(237, 228, 104, 1) 0%, rgba(250, 115, 221, 1) 100%);
+/* background: #dbd763;
+background: linear-gradient(90deg, rgba(219, 215, 99, 1) 0%, rgba(218, 230, 92, 1) 0%, rgba(230, 225, 156, 1) 0%, rgba(231, 174, 232, 1) 100%); */
+/*   background: #dbd763;
+  background: linear-gradient(90deg, rgba(219, 215, 99, 1) 0%, rgba(218, 230, 92, 1) 0%, rgba(219, 213, 132, 1) 0%, rgba(231, 155, 232, 1) 100%); */
+}

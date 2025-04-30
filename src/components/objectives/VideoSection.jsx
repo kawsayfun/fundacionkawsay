@@ -53,9 +53,9 @@ export default function VideoSection() {
               muted
               loop
               playsInline
-              className="absolute top-0 left-0 w-full h-full object-cover"
+              className="absolute top-2.5 left-0 w-full h-full object-cover"
             >
-              <source src="/videos/objectives-video.mp4" type="video/mp4" />
+              <source src="/videos/objetivosChakana.mp4" type="video/mp4" />
             </video>
             {/* Overlay for better text readability */}
             <div className="absolute inset-0 bg-black bg-opacity-50"></div>

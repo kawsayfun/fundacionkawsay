@@ -20,7 +20,7 @@ export default function Footer() {
             <h3 className="text-xl font-bold mb-4">Contacto</h3>
             <ul className="text-gray-400 space-y-2">
               <li>Email: <a href="mailto:info@kawsay.org" className="hover:text-white">fundacionkawsay.2016@gmail.com</a></li>
-              <li>Teléfono: <a href="tel:+1234567890" className="hover:text-white">(02)2-110-924 </a></li>
+              <li>Teléfono: <a href="tel:+1234567890" className="hover:text-white">(02)2-110-924 / (02)3-534-662</a></li>
               <li>Dirección: Cayambe, calle Bolivar y Restauración</li>
             </ul>
           </div>

@@ -7,7 +7,7 @@ import Link from 'next/link';
 const images = [
   null, // Video en el primer slide
   '/images/scaled.png',
-  '/images/scaled2.png',
+  '/images/portada.jpg',
   'text' // Texto en el cuarto slide
 ];
 
@@ -93,7 +93,7 @@ export default function HeroSection() {
                 muted
                 playsInline
               >
-                <source src="/videos/Kawsayv2.mp4" type="video/mp4" />
+                <source src="/videos/FKawsay4.mp4" type="video/mp4" />
                 Tu navegador no soporta la reproducción de videos.
               </video>
             </div>
