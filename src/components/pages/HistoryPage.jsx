@@ -1,8 +1,8 @@
-'use client';
-import { motion } from 'framer-motion';
-import PageHeader from '@/components/common/PageHeader';
-import Image from 'next/image';
-import { useState } from 'react';
+"use client";
+import { motion } from "framer-motion";
+import PageHeader from "@/components/common/PageHeader";
+import Image from "next/image";
+import { useState } from "react";
 
 const Gallery = ({ images }) => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -12,14 +12,14 @@ const Gallery = ({ images }) => {
   // Animaciones mejoradas
   const imageHover = {
     scale: 1.05,
-    filter: 'grayscale(0%)',
-    transition: { duration: 0.3 }
+    filter: "grayscale(0%)",
+    transition: { duration: 0.3 },
   };
 
   const modalAnimation = {
     hidden: { opacity: 0, scale: 0.9 },
     visible: { opacity: 1, scale: 1 },
-    exit: { opacity: 0, scale: 0.8 }
+    exit: { opacity: 0, scale: 0.8 },
   };
 
   const galleryAnimation = {
@@ -28,14 +28,14 @@ const Gallery = ({ images }) => {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
+        delayChildren: 0.2,
+      },
+    },
   };
 
   const itemAnimation = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
+    visible: { opacity: 1, y: 0 },
   };
 
   const handleNavigation = (direction) => {
@@ -67,12 +67,12 @@ const Gallery = ({ images }) => {
                 setIsModalOpen(true);
               }}
             >
-              <Image
+              <img
                 src={img}
                 alt={`Gallery image ${index + 1}`}
-                fill
-                className="rounded-lg object-cover shadow-xl filter grayscale-[20%] group-hover:grayscale-0 transition-all duration-300"
+                className="absolute inset-0 w-full h-full rounded-lg object-cover shadow-xl filter grayscale-[20%] group-hover:grayscale-0 transition-all duration-300"
               />
+
               <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-lg" />
             </motion.div>
           ))}
@@ -130,7 +130,7 @@ const Gallery = ({ images }) => {
                 {currentIndex + 1} / {images.length}
               </div>
 
-              <button 
+              <button
                 className="absolute top-8 right-8 text-white text-4xl"
                 onClick={() => setIsModalOpen(false)}
               >
@@ -146,85 +146,85 @@ const Gallery = ({ images }) => {
 
 export default function HistoryPage() {
   const images = [
-    '/images/historia/Imagen1.jpg',
-    '/images/historia/Imagen2.jpg',
-    '/images/historia/Imagen3.jpg',
-    '/images/historia/Imagen4.jpg',
-    '/images/historia/Imagen5.jpg',
-    '/images/historia/Imagen6.jpg',
-    '/images/historia/Imagen7.jpg',
-    '/images/historia/Imagen8.jpg',
-    '/images/historia/Imagen9.jpg',
-    '/images/historia/Imagen10.jpg',
-    '/images/historia/Imagen11.jpg',
-    '/images/historia/Imagen12.jpg',
-    '/images/historia/Imagen13.jpg',
-    '/images/historia/Imagen14.jpg',
-    '/images/historia/Imagen15.jpg',
-    '/images/historia/Imagen16.jpg',
-    '/images/historia/Imagen17.jpg',
-    '/images/historia/Imagen18.jpg',
-    '/images/historia/Imagen19.jpg',
-    '/images/historia/Imagen20.jpg',
-    '/images/historia/Imagen21.jpg',
-    '/images/historia/Imagen22.jpg',
-    '/images/historia/Imagen23.jpg',
-    '/images/historia/Imagen24.jpg',
-    '/images/historia/Imagen25.jpg',
-    '/images/historia/Imagen26.jpg',
-    '/images/historia/Imagen27.jpg',
-    '/images/historia/Imagen28.jpg',
-    '/images/historia/Imagen29.jpg',
-    '/images/historia/Imagen30.jpg',
-    '/images/historia/Imagen31.jpg',
-    '/images/historia/Imagen32.jpg',
-    '/images/historia/Imagen33.jpg',
-    '/images/historia/Imagen34.jpg',
-    '/images/historia/Imagen35.jpg',
-    '/images/historia/Imagen36.jpg',
-    '/images/historia/Imagen37.jpg',
-    '/images/historia/Imagen38.jpg',
-    '/images/historia/Imagen39.jpg',
-    '/images/historia/Imagen40.jpg',
-    '/images/historia/Imagen41.jpg',
-    '/images/historia/Imagen42.jpg',
-    '/images/historia/Imagen43.jpg',
-    '/images/historia/Imagen44.jpg',
-    '/images/historia/Imagen45.jpg',
-    '/images/historia/Imagen46.jpg',
-    '/images/historia/Imagen47.jpg',
-    '/images/historia/Imagen48.jpg',
-    '/images/historia/Imagen49.jpg',
-    '/images/historia/Imagen50.jpg',
-    '/images/historia/Imagen51.jpg',
-    '/images/historia/Imagen52.jpg',
-    '/images/historia/Imagen53.jpg',
-    '/images/historia/Imagen54.jpg',
-    '/images/historia/Imagen55.jpg',
-    '/images/historia/Imagen56.jpg',
-    '/images/historia/Imagen57.jpg',
-    '/images/historia/Imagen58.jpg',
-    '/images/historia/Imagen59.jpg',
-    '/images/historia/Imagen60.jpg',
-    '/images/historia/Imagen61.jpg',
-    '/images/historia/Imagen62.jpg',
-    '/images/historia/Imagen63.jpg',
-    '/images/historia/Imagen64.jpg',
-    '/images/historia/Imagen65.jpg',
-    '/images/historia/Imagen66.jpg',
-    '/images/historia/Imagen67.jpg',
-    '/images/historia/Imagen68.jpg',
-    '/images/historia/Imagen69.jpg',
-    '/images/historia/Imagen70.jpg',
-    '/images/historia/Imagen71.jpg',
-    '/images/historia/Imagen72.jpg',
-    '/images/historia/Imagen73.jpg',
-    '/images/historia/Imagen74.jpg',
-    '/images/historia/Imagen75.jpg',
-    '/images/historia/Imagen76.jpg',
-    '/images/historia/Imagen77.jpg',
-    '/images/historia/Imagen78.jpg',
-    '/images/historia/Imagen79.jpg'
+    "/images/historia/Imagen1.jpg",
+    "/images/historia/Imagen2.jpg",
+    "/images/historia/Imagen3.jpg",
+    "/images/historia/Imagen4.jpg",
+    "/images/historia/Imagen5.jpg",
+    "/images/historia/Imagen6.jpg",
+    "/images/historia/Imagen7.jpg",
+    "/images/historia/Imagen8.jpg",
+    "/images/historia/Imagen9.jpg",
+    "/images/historia/Imagen10.jpg",
+    "/images/historia/Imagen11.jpg",
+    "/images/historia/Imagen12.jpg",
+    "/images/historia/Imagen13.jpg",
+    "/images/historia/Imagen14.jpg",
+    "/images/historia/Imagen15.jpg",
+    "/images/historia/Imagen16.jpg",
+    "/images/historia/Imagen17.jpg",
+    "/images/historia/Imagen18.jpg",
+    "/images/historia/Imagen19.jpg",
+    "/images/historia/Imagen20.jpg",
+    "/images/historia/Imagen21.jpg",
+    "/images/historia/Imagen22.jpg",
+    "/images/historia/Imagen23.jpg",
+    "/images/historia/Imagen24.jpg",
+    "/images/historia/Imagen25.jpg",
+    "/images/historia/Imagen26.jpg",
+    "/images/historia/Imagen27.jpg",
+    "/images/historia/Imagen28.jpg",
+    "/images/historia/Imagen29.jpg",
+    "/images/historia/Imagen30.jpg",
+    "/images/historia/Imagen31.jpg",
+    "/images/historia/Imagen32.jpg",
+    "/images/historia/Imagen33.jpg",
+    "/images/historia/Imagen34.jpg",
+    "/images/historia/Imagen35.jpg",
+    "/images/historia/Imagen36.jpg",
+    "/images/historia/Imagen37.jpg",
+    "/images/historia/Imagen38.jpg",
+    "/images/historia/Imagen39.jpg",
+    "/images/historia/Imagen40.jpg",
+    "/images/historia/Imagen41.jpg",
+    "/images/historia/Imagen42.jpg",
+    "/images/historia/Imagen43.jpg",
+    "/images/historia/Imagen44.jpg",
+    "/images/historia/Imagen45.jpg",
+    "/images/historia/Imagen46.jpg",
+    "/images/historia/Imagen47.jpg",
+    "/images/historia/Imagen48.jpg",
+    "/images/historia/Imagen49.jpg",
+    "/images/historia/Imagen50.jpg",
+    "/images/historia/Imagen51.jpg",
+    "/images/historia/Imagen52.jpg",
+    "/images/historia/Imagen53.jpg",
+    "/images/historia/Imagen54.jpg",
+    "/images/historia/Imagen55.jpg",
+    "/images/historia/Imagen56.jpg",
+    "/images/historia/Imagen57.jpg",
+    "/images/historia/Imagen58.jpg",
+    "/images/historia/Imagen59.jpg",
+    "/images/historia/Imagen60.jpg",
+    "/images/historia/Imagen61.jpg",
+    "/images/historia/Imagen62.jpg",
+    "/images/historia/Imagen63.jpg",
+    "/images/historia/Imagen64.jpg",
+    "/images/historia/Imagen65.jpg",
+    "/images/historia/Imagen66.jpg",
+    "/images/historia/Imagen67.jpg",
+    "/images/historia/Imagen68.jpg",
+    "/images/historia/Imagen69.jpg",
+    "/images/historia/Imagen70.jpg",
+    "/images/historia/Imagen71.jpg",
+    "/images/historia/Imagen72.jpg",
+    "/images/historia/Imagen73.jpg",
+    "/images/historia/Imagen74.jpg",
+    "/images/historia/Imagen75.jpg",
+    "/images/historia/Imagen76.jpg",
+    "/images/historia/Imagen77.jpg",
+    "/images/historia/Imagen78.jpg",
+    "/images/historia/Imagen79.jpg",
   ].filter(Boolean);
 
   return (
@@ -234,11 +234,11 @@ export default function HistoryPage() {
       exit={{ opacity: 0 }}
       className="min-h-screen bg-gradient-to-b from-gray-100 to-white"
     >
-      <PageHeader 
-        title="Nuestra Historia" 
+      <PageHeader
+        title="Nuestra Historia"
         description="Conoce el camino que nos ha traído hasta aquí"
       />
-      
+
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4">
           <Gallery images={images} />

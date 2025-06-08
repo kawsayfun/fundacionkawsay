@@ -1,71 +1,77 @@
-'use client';
-import { motion } from 'framer-motion';
-import Layout from '@/components/layout/Layout';
-import PageHeader from '@/components/common/PageHeader';
-import Image from 'next/image';
+"use client";
+import { motion } from "framer-motion";
+import Layout from "@/components/layout/Layout";
+import PageHeader from "@/components/common/PageHeader";
+import Image from "next/image";
 
 export default function ActionArea() {
   const actionAreas = [
     {
       title: "Formación y capacitación",
-      description: "Identidad cultural, sistemas de organización comunitaria, derechos de pueblos indígenas y producción agroecológica.",
+      description:
+        "Identidad cultural, sistemas de organización comunitaria, derechos de pueblos indígenas y producción agroecológica.",
       image: "/images/areasaccion/formacioncapacitacion.png",
       activities: [
         "Talleres de identidad cultural",
         "Capacitación en sistemas organizativos",
         "Formación en derechos indígenas",
-        "Prácticas agroecológicas"
-      ]
+        "Prácticas agroecológicas",
+      ],
     },
     {
       title: "Investigación y publicación",
-      description: "Desarrollo de investigaciones y publicaciones sobre cultura, educación y desarrollo comunitario.",
+      description:
+        "Desarrollo de investigaciones y publicaciones sobre cultura, educación y desarrollo comunitario.",
       image: "/images/areasaccion/investigacionpublicacion.jpg",
       activities: [
         "Estudios culturales",
         "Documentación de saberes ancestrales",
         "Publicaciones educativas",
-        "Materiales didácticos"
-      ]
+        "Materiales didácticos",
+      ],
     },
     {
       title: "Acompañamiento organizativo",
-      description: "Acompañamiento organizativo, pedagógico y cultural a las comunidades.",
+      description:
+        "Acompañamiento organizativo, pedagógico y cultural a las comunidades.",
       image: "/images/areasaccion/acomorganizado.png",
       activities: [
         "Asesoría organizacional",
         "Apoyo pedagógico",
         "Gestión cultural",
-        "Desarrollo comunitario"
-      ]
-    }
+        "Desarrollo comunitario",
+      ],
+    },
   ];
 
   const regions = [
     {
       name: "Región Sierra",
       communities: ["Cayambe", "Otavalo", "Cotopaxi"],
-      description: "Trabajamos con comunidades indígenas en las provincias de la Sierra ecuatoriana."
+      description:
+        "Trabajamos con comunidades indígenas en las provincias de la Sierra ecuatoriana.",
     },
     {
       name: "Región Amazónica",
       communities: ["Napo", "Pastaza", "Morona Santiago"],
-      description: "Desarrollamos proyectos educativos adaptados a las necesidades específicas de las comunidades amazónicas."
+      description:
+        "Desarrollamos proyectos educativos adaptados a las necesidades específicas de las comunidades amazónicas.",
     },
     {
       name: "Región Costa",
       communities: ["Manabí", "Esmeraldas", "Santa Elena"],
-      description: "Colaboramos con comunidades costeras en proyectos de desarrollo sostenible."
-    }
+      description:
+        "Colaboramos con comunidades costeras en proyectos de desarrollo sostenible.",
+    },
   ];
 
   return (
     <Layout>
-      <PageHeader 
-        title="Área de Acción" 
+      <PageHeader
+        title="Área de Acción"
         description="Áreas principales de nuestro trabajo y regiones de impacto"
       />
-      
+
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Áreas de Acción */}
@@ -88,19 +94,23 @@ export default function ActionArea() {
                   className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
                 >
                   <div className="relative h-48">
-                    <Image
+                    <img
                       src={area.image}
                       alt={area.title}
-                      fill
-                      className="object-cover"
+                      className="absolute inset-0 w-full h-full object-cover"
                     />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{area.title}</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                      {area.title}
+                    </h3>
                     <p className="text-gray-600 mb-4">{area.description}</p>
                     <ul className="space-y-2">
                       {area.activities.map((activity, idx) => (
-                        <li key={idx} className="flex items-center text-gray-600">
+                        <li
+                          key={idx}
+                          className="flex items-center text-gray-600"
+                        >
                           <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
                           {activity}
                         </li>
@@ -131,10 +141,14 @@ export default function ActionArea() {
                   transition={{ delay: index * 0.2 }}
                   className="bg-white rounded-xl p-6 shadow-lg"
                 >
-                  <h3 className="text-xl font-bold text-blue-900 mb-3">{region.name}</h3>
+                  <h3 className="text-xl font-bold text-blue-900 mb-3">
+                    {region.name}
+                  </h3>
                   <p className="text-gray-600 mb-4">{region.description}</p>
                   <div>
-                    <h4 className="font-semibold text-gray-700 mb-2">Comunidades:</h4>
+                    <h4 className="font-semibold text-gray-700 mb-2">
+                      Comunidades:
+                    </h4>
                     <ul className="list-disc list-inside text-gray-600">
                       {region.communities.map((community) => (
                         <li key={community}>{community}</li>

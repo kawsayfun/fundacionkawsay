@@ -1,15 +1,14 @@
-'use client';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
+"use client";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const schoolImages = [
-  '/images/Escuelaagroecologia/Capacitacionsobremanejoyconservaciondesuelos1.png',
-  '/images/Escuelaagroecologia/cms2.png',
-  '/images/Escuelaagroecologia/cms3.png',
-  '/images/Escuelaagroecologia/Capturademicrorganismos1.JPG',
-  '/images/Escuelaagroecologia/Capturademicrorganismos2.JPG'
-
+  "/images/Escuelaagroecologia/Capacitacionsobremanejoyconservaciondesuelos1.png",
+  "/images/Escuelaagroecologia/cms2.png",
+  "/images/Escuelaagroecologia/cms3.png",
+  "/images/Escuelaagroecologia/Capturademicrorganismos1.JPG",
+  "/images/Escuelaagroecologia/Capturademicrorganismos2.JPG",
 ];
 
 export default function SchoolsHero() {
@@ -36,21 +35,21 @@ export default function SchoolsHero() {
 
   const variants = {
     enter: (direction) => ({
-      x: direction > 0 ? '100%' : '-100%',
-      opacity: 0
+      x: direction > 0 ? "100%" : "-100%",
+      opacity: 0,
     }),
     center: {
       x: 0,
-      opacity: 1
+      opacity: 1,
     },
     exit: (direction) => ({
-      x: direction > 0 ? '-100%' : '100%',
-      opacity: 0
-    })
+      x: direction > 0 ? "-100%" : "100%",
+      opacity: 0,
+    }),
   };
 
   return (
-    <section 
+    <section
       className="relative min-h-[60vh] overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -64,25 +63,24 @@ export default function SchoolsHero() {
           animate="center"
           exit="exit"
           transition={{
-            x: { type: 'spring', stiffness: 300, damping: 30 },
-            opacity: { duration: 0.2 }
+            x: { type: "spring", stiffness: 300, damping: 30 },
+            opacity: { duration: 0.2 },
           }}
           className="absolute inset-0"
         >
           <div className="absolute inset-0 h-[120%] -translate-y-[10%]">
-          <Image
-            src={schoolImages[currentIndex]}
-            alt={`Escuela ${currentIndex + 1}`}
-            fill
-            className="object-cover"
-            priority
-            style={{
-              objectPosition: 'center 30%', // Ajusta el enfoque vertical
-            }}
-          />
+            <img
+              src={schoolImages[currentIndex]}
+              alt={`Escuela ${currentIndex + 1}`}
+              className="object-cover w-full h-full"
+              style={{
+                objectPosition: "center 30%", // Ajusta el enfoque vertical
+              }}
+            />
           </div>
+
           <div className="absolute inset-0 bg-black opacity-50" />
-          
+
           <div className="relative flex items-center justify-center min-h-[60vh] text-center text-white px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -93,8 +91,8 @@ export default function SchoolsHero() {
                 Nuestras Escuelas
               </h1>
               <p className="text-xl max-w-2xl mx-auto">
-                Descubre los centros educativos donde transformamos vidas a través 
-                de la educación y el desarrollo comunitario.
+                Descubre los centros educativos donde transformamos vidas a
+                través de la educación y el desarrollo comunitario.
               </p>
             </motion.div>
           </div>
@@ -108,7 +106,9 @@ export default function SchoolsHero() {
             key={index}
             onClick={() => goToSlide(index)}
             className={`h-3 w-3 rounded-full transition-all ${
-              index === currentIndex ? 'bg-white w-8' : 'bg-white/50 hover:bg-white/80'
+              index === currentIndex
+                ? "bg-white w-8"
+                : "bg-white/50 hover:bg-white/80"
             }`}
           />
         ))}
@@ -117,19 +117,43 @@ export default function SchoolsHero() {
       {/* Flechas de navegación */}
       <button
         className="absolute left-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors z-10 p-2"
-        onClick={() => goToSlide((currentIndex - 1 + schoolImages.length) % schoolImages.length)}
+        onClick={() =>
+          goToSlide(
+            (currentIndex - 1 + schoolImages.length) % schoolImages.length
+          )
+        }
       >
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        <svg
+          className="w-8 h-8"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M15 19l-7-7 7-7"
+          />
         </svg>
       </button>
-      
+
       <button
         className="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors z-10 p-2"
         onClick={() => goToSlide((currentIndex + 1) % schoolImages.length)}
       >
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        <svg
+          className="w-8 h-8"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 5l7 7-7 7"
+          />
         </svg>
       </button>
     </section>

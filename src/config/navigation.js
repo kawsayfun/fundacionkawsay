@@ -13,6 +13,11 @@ export const navigationItems = [
       { name: 'Área de Acción', href: '/institucion/area-accion' }
     ]
   },
+   {
+    name: 'BLOG',
+    href: '/blog',
+    dropdownItems: [] // Opcional: para categorías si las necesitas
+  },
   {
     name: 'INFORMACIÓN',
     href: '/informacion',

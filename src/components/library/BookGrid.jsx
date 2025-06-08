@@ -31,7 +31,7 @@ export default function BookGrid() {
   }, []);
 
   const handleBookClick = (bookId) => {
-    router.push(`/biblioteca/detalle/${bookId}`); // Navegación dinámica
+    router.push(`/biblioteca/detalle?id=${bookId}`);
   };
 
   return (
