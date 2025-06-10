@@ -99,15 +99,21 @@ export default function BookDetail() {
           >
             <div className="grid grid-cols-1 md:grid-cols-2">
               {/* Imagen del libro */}
-              <div className="relative h-[400px] md:h-[600px]">
-                <motion.img
-                  initial={{ scale: 1.2, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  src={book.cover || "/images/default.png"}
-                  alt={book.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+  <div className="relative h-[400px] md:h-[600px]">
+  <motion.img
+    initial={{ scale: 1.2, opacity: 0 }}
+    animate={{ scale: 1, opacity: 1 }}
+    src={
+      book.cover
+        ? `/images/biblioteca/${book.cover.split('/').pop()}`
+        : "/images/default.png"
+    }
+    alt={book.title}
+    className="w-full h-full object-cover"
+  />
+</div>
+
+
 
               {/* Contenido */}
               <div className="p-8 md:p-12">
