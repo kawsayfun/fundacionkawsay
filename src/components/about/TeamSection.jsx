@@ -17,7 +17,7 @@ const teamMembers = [
     image: "/images/socios/Carlos Bautista.jpg",
   },
   {
-    name: "Msc.Maribel  Chimbo",
+    name: "MSc.Maribel  Chimbo",
     role: "SECRETARIA DE ACTAS Y COMUNICACIONES.",
     description:
       "Experta en gestión de proyectos comunitarios y desarrollo sostenible.",
@@ -38,7 +38,7 @@ const teamMembers = [
     image: "/images/socios/Darwin Reyes.jpeg",
   },
   {
-    name: "LCDO.Floresmilo Simbaña",
+    name: "Lcdo.Floresmilo Simbaña",
     role: "SEGUNDO VOCAL.",
     description:
       "Experto en gestión de proyectos comunitarios y desarrollo sostenible.",

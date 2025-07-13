@@ -22,7 +22,7 @@ export default function SchoolsHero() {
       const interval = setInterval(() => {
         setDirection(1);
         setCurrentIndex((prev) => (prev + 1) % schoolImages.length);
-      }, 5000);
+      }, 3000);
       return () => clearInterval(interval);
     }
   }, [isHovered]);

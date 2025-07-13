@@ -1,8 +1,10 @@
 {
-  "/not-found": "app/not-found.js",
-  "/blog/detalle/page": "app/blog/detalle/page.js",
-  "/institucion/mision-vision/page": "app/institucion/mision-vision/page.js",
-  "/biblioteca/page": "app/biblioteca/page.js",
   "/contactos/page": "app/contactos/page.js",
+  "/escuelas/page": "app/escuelas/page.js",
+  "/informacion/page": "app/informacion/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/page": "app/page.js",
+  "/biblioteca/page": "app/biblioteca/page.js",
+  "/institucion/page": "app/institucion/page.js",
   "/biblioteca/detalle/page": "app/biblioteca/detalle/page.js"
 }

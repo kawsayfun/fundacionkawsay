@@ -27,7 +27,7 @@ export default function ContactPage() {
               </p>
               <p className="flex items-center text-gray-600">
                 <span className="font-semibold w-24">Teléfono:</span>
-                <span>(02)2-110-924 </span>
+                <span>(02)2-110-924 / (02)3-534-662 </span>
               </p>
               <p className="flex items-center text-gray-600">
                 <span className="font-semibold w-24">Dirección:</span>
