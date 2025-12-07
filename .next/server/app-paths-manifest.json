@@ -1,10 +1,7 @@
 {
-  "/contactos/page": "app/contactos/page.js",
-  "/escuelas/page": "app/escuelas/page.js",
-  "/informacion/page": "app/informacion/page.js",
-  "/blog/page": "app/blog/page.js",
+  "/not-found": "app/not-found.js",
   "/page": "app/page.js",
-  "/biblioteca/page": "app/biblioteca/page.js",
   "/institucion/page": "app/institucion/page.js",
-  "/biblioteca/detalle/page": "app/biblioteca/detalle/page.js"
+  "/blog/page": "app/blog/page.js",
+  "/contactos/page": "app/contactos/page.js"
 }

@@ -123,10 +123,13 @@ export default function PostDetail() {
       <h1 className="text-4xl font-bold mb-6">{post.title}</h1>
 
       {/* ✅ Justificado y con saltos de línea */}
-      <div
-        className="prose max-w-none text-justify"
-        dangerouslySetInnerHTML={{ __html: post.content }}
-      />
+      <div 
+  className="prose lg:prose-xl mx-auto"
+  dangerouslySetInnerHTML={{
+    __html: post.content.replace(/\n/g, "<br/>")
+  }}
+/>
+
 
       <p className="mt-12 text-sm text-gray-500 text-right">
         Escrito por <span className="font-semibold">{post.author}</span>
