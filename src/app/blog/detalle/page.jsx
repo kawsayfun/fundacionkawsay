@@ -25,7 +25,8 @@ export default function PostDetail() {
     const fetchPost = async () => {
       try {
         setLoading(true);
-        const postRef = doc(db, 'posts_publicos', postId); // colección correcta
+
+        const postRef = doc(db, 'posts_publicos', postId);
         const postSnap = await getDoc(postRef);
 
         if (!postSnap.exists()) {
@@ -34,21 +35,22 @@ export default function PostDetail() {
 
         const data = postSnap.data();
 
-        let formattedDate = 'Fecha no disponible';
-        if (data.createdAt?.toDate) {
-          formattedDate = data.createdAt.toDate().toLocaleDateString('es-ES', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          });
-        }
+        const formattedDate = data.createdAt?.toDate
+          ? data.createdAt.toDate().toLocaleDateString('es-ES', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })
+          : 'Fecha no disponible';
 
         setPost({
           id: postSnap.id,
           title: data.title || 'Sin título',
           content: data.content || '',
           author: data.author || 'Autor desconocido',
-          coverImage: data.image || '/images/default-blog.jpg', // campo correcto
+          coverImage: data.image || '',
+          mediaType: data.mediaType || 'image', // image | video
+          videoUrl: data.videoUrl || '',
           category: 'General',
           date: formattedDate,
         });
@@ -68,10 +70,7 @@ export default function PostDetail() {
     return (
       <Layout>
         <div className="min-h-screen flex items-center justify-center">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600 mx-auto" />
-            <p className="mt-4 text-gray-600">Cargando post...</p>
-          </div>
+          <p className="text-gray-600">Cargando post...</p>
         </div>
       </Layout>
     );
@@ -81,26 +80,7 @@ export default function PostDetail() {
     return (
       <Layout>
         <div className="min-h-screen flex items-center justify-center bg-red-50">
-          <div className="text-center p-8 max-w-2xl">
-            <svg
-              className="w-16 h-16 text-red-500 mx-auto mb-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
-              />
-            </svg>
-            <h1 className="text-2xl font-bold text-red-600 mb-4">Acceso restringido</h1>
-            <p className="text-red-500">{error}</p>
-            <p className="text-sm text-gray-500 mt-4">
-              Serás redirigido al blog institucional automáticamente...
-            </p>
-          </div>
+          <p className="text-red-600">{error}</p>
         </div>
       </Layout>
     );
@@ -108,35 +88,62 @@ export default function PostDetail() {
 
   if (!post) return null;
 
- return (
-  <Layout>
-    <div className="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-      <img
-        src={post.coverImage}
-        alt={post.title}
-        className="w-full h-80 object-cover rounded-xl mb-8"
-      />
-      <div className="mb-6">
-        <span className="text-sm text-blue-600 font-medium">{post.category}</span>
-        <span className="text-sm text-gray-500 ml-4">{post.date}</span>
+  return (
+    <Layout>
+      <div className="max-w-4xl mx-auto py-16 px-4">
+
+        {/* IMAGEN */}
+        {post.mediaType === 'image' && post.coverImage && (
+          <img
+            src={post.coverImage}
+            alt={post.title}
+            className="w-full h-80 object-cover rounded-xl mb-8"
+          />
+        )}
+
+        {/* VIDEO YOUTUBE */}
+        {post.mediaType === 'video' && post.videoUrl && (
+          <div className="relative w-full pb-[56.25%] mb-8 rounded-xl overflow-hidden">
+            <iframe
+              src={`https://www.youtube.com/embed/${getYoutubeId(post.videoUrl)}`}
+              className="absolute top-0 left-0 w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        )}
+
+        <div className="mb-6">
+          <span className="text-sm text-blue-600 font-medium">
+            {post.category}
+          </span>
+          <span className="text-sm text-gray-500 ml-4">{post.date}</span>
+        </div>
+
+        <h1 className="text-4xl font-bold mb-6">{post.title}</h1>
+
+        <div
+          className="prose lg:prose-xl mx-auto"
+          dangerouslySetInnerHTML={{
+            __html: post.content.replace(/\n/g, '<br/>'),
+          }}
+        />
+
+        <p className="mt-12 text-sm text-gray-500 text-right">
+          Escrito por <span className="font-semibold">{post.author}</span>
+        </p>
       </div>
-      <h1 className="text-4xl font-bold mb-6">{post.title}</h1>
-
-      {/* ✅ Justificado y con saltos de línea */}
-      <div 
-  className="prose lg:prose-xl mx-auto"
-  dangerouslySetInnerHTML={{
-    __html: post.content.replace(/\n/g, "<br/>")
-  }}
-/>
-
-
-      <p className="mt-12 text-sm text-gray-500 text-right">
-        Escrito por <span className="font-semibold">{post.author}</span>
-      </p>
-    </div>
-  </Layout>
-);
-
+    </Layout>
+  );
 }
 
+/* =========================
+   UTILIDAD YOUTUBE
+========================= */
+function getYoutubeId(url) {
+  if (!url) return '';
+  const regExp =
+    /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  const match = url.match(regExp);
+  return match && match[2].length === 11 ? match[2] : '';
+}
