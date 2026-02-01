@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
@@ -14,28 +14,26 @@ export default function BlogGrid() {
     const fetchPosts = async () => {
       const snapshot = await getDocs(collection(db, "posts_publicos"));
 
-      const postsData = snapshot.docs.map(doc => {
+      const postsData = snapshot.docs.map((doc) => {
         const data = doc.data();
 
-        let thumbnail = data.image || "/images/blog-default.jpg";
-
-        // 🎯 Si es video → sacar thumbnail de YouTube
-        if (data.mediaType === "video" && data.videoUrl) {
-          const videoId = data.videoUrl.split("v=")[1]?.split("&")[0];
-          if (videoId) {
-            thumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-          }
-        }
+        const thumbnail = getVideoThumbnail(
+          data.mediaType,
+          data.videoUrl,
+          data.image,
+        );
 
         return {
           id: doc.id,
-          title: data.title,
-          content: data.content,
-          createdAt: data.createdAt?.toDate().toLocaleDateString("es-ES", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          }),
+          title: data.title || "Sin título",
+          content: data.content || "",
+          createdAt: data.createdAt?.toDate
+            ? data.createdAt.toDate().toLocaleDateString("es-ES", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })
+            : "Fecha no disponible",
           mediaType: data.mediaType || "image",
           thumbnail,
         };
@@ -55,7 +53,7 @@ export default function BlogGrid() {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map((post, index) => (
+          {posts.map((post) => (
             <motion.div
               key={post.id}
               whileHover={{ scale: 1.05 }}
@@ -63,7 +61,6 @@ export default function BlogGrid() {
               onClick={() => router.push(`/blog/detalle?id=${post.id}`)}
             >
               <div className="bg-white rounded-xl shadow overflow-hidden">
-
                 {/* 🖼️ Thumbnail */}
                 <div className="relative">
                   <img
@@ -90,9 +87,7 @@ export default function BlogGrid() {
 
                 {/* 📄 Texto */}
                 <div className="p-6">
-                  <p className="text-sm text-gray-500 mb-2">
-                    {post.createdAt}
-                  </p>
+                  <p className="text-sm text-gray-500 mb-2">{post.createdAt}</p>
                   <h3 className="text-xl font-bold mb-2 line-clamp-2">
                     {post.title}
                   </h3>
@@ -100,7 +95,6 @@ export default function BlogGrid() {
                     {post.content.slice(0, 100)}...
                   </p>
                 </div>
-
               </div>
             </motion.div>
           ))}
@@ -108,4 +102,41 @@ export default function BlogGrid() {
       </div>
     </section>
   );
+}
+
+/* =========================
+   UTILIDAD THUMBNAIL VIDEO
+========================= */
+function getVideoThumbnail(mediaType, videoUrl, image) {
+  // Imagen normal
+  if (mediaType !== "video") {
+    return image || "/images/blog-default.jpg";
+  }
+
+  if (!videoUrl) {
+    return "/images/video-placeholder.jpg";
+  }
+
+  // YouTube Shorts
+  if (videoUrl.includes("youtube.com/shorts")) {
+    const id = videoUrl.split("shorts/")[1]?.split("?")[0];
+    return id
+      ? `https://img.youtube.com/vi/${id}/hqdefault.jpg`
+      : "/images/video-placeholder.jpg";
+  }
+
+  // YouTube normal / youtu.be
+  if (videoUrl.includes("youtube.com") || videoUrl.includes("youtu.be")) {
+    const regExp =
+      /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = videoUrl.match(regExp);
+    const id = match && match[2].length === 11 ? match[2] : null;
+
+    return id
+      ? `https://img.youtube.com/vi/${id}/hqdefault.jpg`
+      : "/images/video-placeholder.jpg";
+  }
+
+  // Facebook u otros
+  return "/images/FacebookCayambe.jpg";
 }

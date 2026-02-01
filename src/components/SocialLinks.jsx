@@ -4,8 +4,8 @@ import { FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaTiktok } from 'react-i
 export default function SocialLinks() {
   const socialMedia = [
     { icon: FaFacebook, href: 'https://www.facebook.com/profile.php?id=100064346215598', color: 'bg-blue-600' },
-    { icon: FaTiktok, href: 'https://www.tiktok.com/@f_kawsay', color: 'bg-gray-800' },
-    { icon: FaInstagram, href: 'https://www.instagram.com/fundacion_kawsay/', color: 'bg-pink-600' },
+    { icon: FaTiktok, href: 'https://www.tiktok.com/@fun.kawsay?_r=1&_t=ZM-92Ics9pICmy', color: 'bg-gray-800' },
+    { icon: FaInstagram, href: 'https://www.instagram.com/fundacion_kawsay?igsh=N243ZHZ5bzRnMnhm', color: 'bg-pink-600' },
     { icon: FaYoutube, href: 'https://www.youtube.com/@fundacionkawsay2941', color: 'bg-red-600' },  // Nuevo ícono de YouTube
   ];
 

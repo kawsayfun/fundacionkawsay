@@ -1,6 +1,10 @@
 {
+  "/not-found": "app/not-found.js",
+  "/blog/page": "app/blog/page.js",
   "/blog/detalle/page": "app/blog/detalle/page.js",
-  "/institucion/page": "app/institucion/page.js",
   "/page": "app/page.js",
-  "/blog/page": "app/blog/page.js"
+  "/institucion/page": "app/institucion/page.js",
+  "/informacion/page": "app/informacion/page.js",
+  "/escuelas/page": "app/escuelas/page.js",
+  "/biblioteca/page": "app/biblioteca/page.js"
 }
