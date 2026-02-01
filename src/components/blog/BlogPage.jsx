@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { db } from "@/firebaseConfig";
-import { collection, getDocs } from "firebase/firestore";
+//import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
 
 export default function BlogGrid() {
   const router = useRouter();
@@ -12,7 +13,12 @@ export default function BlogGrid() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const snapshot = await getDocs(collection(db, "posts_publicos"));
+      const q = query(
+        collection(db, "posts_publicos"),
+        orderBy("createdAt", "desc"), // ⬅️ más recientes primero
+      );
+
+      const snapshot = await getDocs(q);
 
       const postsData = snapshot.docs.map((doc) => {
         const data = doc.data();
@@ -23,20 +29,26 @@ export default function BlogGrid() {
           data.image,
         );
 
-        return {
-          id: doc.id,
-          title: data.title || "Sin título",
-          content: data.content || "",
-          createdAt: data.createdAt?.toDate
-            ? data.createdAt.toDate().toLocaleDateString("es-ES", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })
-            : "Fecha no disponible",
-          mediaType: data.mediaType || "image",
-          thumbnail,
-        };
+        const createdAtDate = data.createdAt?.toDate
+  ? data.createdAt.toDate()
+  : null;
+
+return {
+  id: doc.id,
+  title: data.title || "Sin título",
+  content: data.content || "",
+  createdAtRaw: createdAtDate,
+  createdAt: createdAtDate
+    ? createdAtDate.toLocaleDateString("es-ES", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    : "Fecha no disponible",
+  mediaType: data.mediaType || "image",
+  thumbnail,
+};
+
       });
 
       setPosts(postsData);
